@@ -1,10 +1,14 @@
 {
-  "version": 2,
-  "public": true,
   "builds": [
-    { "src": "dist/Frontend/browser/**", "use": "@vercel/static" }
+    {
+      "src": "dist/adressBook/browser/**/*",
+      "use": "@vercel/static"
+    }
   ],
   "routes": [
-    { "src": "/(.*)", "dest": "dist/Frontend/browser/index.html" }
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
   ]
 }
