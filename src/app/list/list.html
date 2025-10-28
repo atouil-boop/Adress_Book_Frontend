@@ -1,0 +1,60 @@
+<div class="container my-5">
+            <div class=" card card-list ">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table mt-3">
+                            <thead>
+                                <tr>
+                                    <th scope="col" class="">#</th>
+                                    <th scope="col" class="">image</th>
+                                    <th scope="col" class="">Firstname</th>
+                                    <th scope="col" class="">Lastname</th>
+                                    <th scope="col" class="">Email</th>
+                                    <th scope="col" class="">Tel</th>
+                                    <th scope="col" class="">Adress</th>
+                                    <th scope="col" class="">Options</th>
+                                </tr>
+                            </thead>
+            
+                            <tbody>
+                                @for(item of table; track item._id; let i = $index)
+                                {
+                                <tr>
+                                    <td class="py-3">{{i+1}}</td>
+                                    <td  class="avatar-md">
+                                        <img class="img" [src]="'http://127.0.0.1:3000/uploads/' + item.image" alt="">
+                                    </td>
+                                    <td class="fw-regular py-3"> {{item.firstname}}  </td>
+                                    <td class="fw-regular py-3"> {{item.lastname}} </td>
+                                    <td class="fw-regular py-3"> {{item.email}} </td>
+                                    <td class="fw-regular py-3">{{item.tel}} </td>
+                                    <td class="fw-regular py-3 "> {{item.adress}}</td>
+                                
+                                    <td class="py-3 d-flex flex-nowrap">
+            
+                                        <button [routerLink]="['/home/update',item._id]"
+                                            class="btn btn-success  rounded-3 waves-effect  p-icon me-1">
+                                            <img style="width: 20px;"
+                                                src="assets/edit-icon.svg" alt="">
+                                        </button>
+            
+            
+                                        <button (click)="Delete(item._id)" type="button"
+                                            class="btn btn-danger rounded-3 waves-effect p-icon mx-2">
+                                            <img src="assets/delete-icon.svg" alt="">
+                                        </button>
+                                    </td>
+                                </tr>
+                             }
+
+                                
+
+                                
+                            </tbody>
+                        </table>
+            
+                    </div>
+                </div>
+            </div>
+        </div>
+
